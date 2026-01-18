@@ -1,39 +1,91 @@
+'use client';
+
 import Link from 'next/link';
 import Image from 'next/image';
+import { useState, useEffect } from 'react';
 
 export default function HomePage() {
+  const [currentTestimonial, setCurrentTestimonial] = useState(0);
+
+  const testimonials = [
+    {
+      name: "Jon L.",
+      title: "Business-First Cybersecurity & Risk Leader | Bridging Security & Innovation | ex-BMS | ex-Marriott | ex-KPMG",
+      quote: "Karen was the first career coach I worked with, and she made a real difference in my career journey. After being with the same company for over 15 years, I had forgotten how to interview and even how to obtain leads. Karen helped me get out of my shell and guided me towards a career change that I had wanted for a long time but had been unsuccessful in achieving on my own. She really helped me look inside myself to find the candidate I knew was there and that companies were looking for. Karen's expertise, encouragement, and genuine support were invaluable. I highly recommend Karen to anyone looking to make a significant career change and rediscover their professional potential."
+    },
+    {
+      name: "Rana G.",
+      title: "Sales Vendor Manager at Uber | Driving BPO Performance | CX Excellence | Cost Efficiency | Expert in Vendor & Stakeholder Management | Multilingual Professional",
+      quote: "Before I met Karen and we started our sessions I was in a quite grim space. I had high anxiety before and during my interviews that was impeding my progress. It also affected my perception of my professional achievements which in return didn't help my interview preparation. From the very first session I had an amazing experience with a lot of guidance. Karen was able to shine the light on what needs to be worked on, but also she inspired me to go on personal discovery journey to understand the reason behind my anxiety. I was supported along the way on every step and not only I gained confidence I also secured two job offers and both for my dream position I worked towards for several years. It took Karen a month to turnaround the outcome for me and she equipped me with life lasting tools to continue growing. Highly recommend Karen as her approach is personal and tailored to current needs and circumstances."
+    },
+    {
+      name: "Marc K.",
+      title: "Founding Partner of Sapiens Advisors",
+      quote: "Karen has helped me immeasurably. She is a great coach. My consulting practice has tripled within 6 months of starting to work with her. Just as importantly, if not more importantly, she has been instrumental in helping me explore and realize what I really want to do and what type of life I want to lead."
+    },
+    {
+      name: "Demiss K.",
+      title: "Vice Chairman of the board of directors at SHEMU Group of companies",
+      quote: "I had no idea what life coaching was all about. However, after meeting Karen and worked with her, not only have learned what it was but benefited greatly in finding my purpose in life. I still seek her guidance time to time after taking an active role playing the game that she had vividly helped me see…"
+    },
+    {
+      name: "María L.",
+      title: "Founder & CEO Ronin PR",
+      quote: "Karen helped me to improve my company development by strengthening my skills through her coaching. She understands the problem from deep inside, doesn't matter if it's a personal matter that is affecting the decision making or it has to do with an operational process inside the business. She guided me through a path of clarification to understand objectively the circumstances that were affecting my business."
+    },
+    {
+      name: "Dennis H.",
+      title: "President Teamster Local 773",
+      quote: "I have known Karen personally for years. When she spoke to me about a coaching session, I was skeptical. After one session, I was a believer. She focused my attention on my goals, and showed me a clear path to achieve them. Above all, she made think about the direction my life was taking. Karen is a great communicator and motivator and would be a valuable resource to anyone looking for an executive coach."
+    }
+  ];
+
+  useEffect(() => {
+    const timer = setInterval(() => {
+      setCurrentTestimonial((prev) => (prev + 1) % testimonials.length);
+    }, 8000);
+    return () => clearInterval(timer);
+  }, [testimonials.length]);
+
+  const goToTestimonial = (index: number) => {
+    setCurrentTestimonial(index);
+  };
+
+  const nextTestimonial = () => {
+    setCurrentTestimonial((prev) => (prev + 1) % testimonials.length);
+  };
+
+  const prevTestimonial = () => {
+    setCurrentTestimonial((prev) => (prev - 1 + testimonials.length) % testimonials.length);
+  };
+
   return (
     <div className="min-h-screen bg-white">
-      {/* Hero Section */}
-      <section className="relative h-[600px] lg:h-[700px] overflow-hidden">
-        {/* Background Image */}
+      {/* Hero Section with Color Block */}
+      <section className="relative min-h-[500px] lg:min-h-[600px] flex items-center">
+        {/* Color Block Background - Split Design */}
         <div className="absolute inset-0 z-0">
-          <Image
-            src="/images/trc_training_hero_3.jpg"
-            alt="Professional coaching session"
-            fill
-            sizes="100vw"
-            style={{
-              objectFit: 'cover',
-            }}
-            priority
-          />
+          <div className="h-full w-full flex">
+            {/* Indigo Blue Block */}
+            <div className="w-1/2 h-full bg-gradient-to-br from-indigo-900 via-indigo-800 to-indigo-700"></div>
+            {/* Orange Block */}
+            <div className="w-1/2 h-full bg-gradient-to-bl from-orange-500 via-orange-400 to-amber-500"></div>
+          </div>
+          {/* Diagonal overlay for blending */}
+          <div className="absolute inset-0 bg-gradient-to-r from-indigo-900/30 via-transparent to-orange-500/30"></div>
         </div>
 
-        {/* Dark overlay at bottom */}
-        <div className="absolute bottom-0 left-0 right-0 h-[40%] bg-gradient-to-t from-black/90 via-black/70 to-transparent z-10"></div>
-
         {/* Content */}
-        <div className="absolute bottom-0 left-0 right-0 z-20">
-          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pb-4 lg:pb-6">
-            <div className="text-left lg:text-center">
-              <p className="text-xl lg:text-2xl text-white mb-4 tracking-wide" style={{textShadow: '1px 1px 2px rgba(0,0,0,0.6)'}}>
+        <div className="relative z-20 w-full">
+          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16 lg:py-24">
+            <div className="text-center">
+              <p className="text-xl lg:text-2xl text-white/90 mb-6 tracking-wide font-light">
                 Tabula Rasa Coaching
               </p>
-              <h1 className="text-5xl md:text-6xl lg:text-7xl xl:text-8xl font-bold text-white mb-4 tracking-tight leading-tight" style={{textShadow: '2px 2px 4px rgba(0,0,0,0.8)'}}>
-                Where the Technical and the Adaptive Come Together to Create Sustainable Change
+              <h1 className="text-5xl md:text-6xl lg:text-7xl xl:text-8xl font-bold text-white mb-8 tracking-tight leading-tight">
+                Question the Unquestionable
               </h1>
-              <p className="text-xl lg:text-2xl text-white leading-relaxed max-w-3xl lg:mx-auto" style={{textShadow: '1px 1px 3px rgba(0,0,0,0.8)'}}>
+              <p className="text-xl lg:text-2xl text-white/90 leading-relaxed max-w-3xl mx-auto">
                 Professional 1:1 coaching with Karen Florence, CPC, CPRWC
               </p>
             </div>
@@ -41,41 +93,25 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* My Approach Section */}
-      <section id="about" className="py-12 lg:py-16 bg-gray-50">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid lg:grid-cols-2 gap-12 items-center">
-            <div className="order-2 lg:order-1">
-              <div className="relative rounded-lg overflow-hidden shadow-lg">
-                <Image
-                  src="/images/trc_coaching_5_a.png"
-                  alt="Professional coaching session"
-                  width={600}
-                  height={400}
-                  className="w-full h-auto object-cover"
-                  priority
-                />
-              </div>
-            </div>
-            <div className="order-1 lg:order-2">
-              <h2 className="text-4xl font-bold text-trc-gray-900 mb-8" style={{whiteSpace: 'normal', wordBreak: 'normal'}}>
-                My Approach
-              </h2>
-              <div className="space-y-6 text-lg text-trc-gray-700 leading-relaxed">
-                <p>
-                  I believe in the resiliency of the human spirit. Human Beings can rise above the circumstances of their birth and overcome great trauma and hardship to become whole and resourceful contributors to our planet. Why some people soar because of their experiences and others get stuck for a lifetime has been the prevailing area of study of my life's journey, and informs the work I do with my clients.
-                </p>
-                <p>
-                  The question is not "What is wrong with me?", the question is "What happened to me? And how has that shaped my life?". The answer to this question influences every day of your life, both personally and professionally.
-                </p>
-                <p>
-                  The behavior we are experiencing today is always linked back to an experience in our past. My work is to help my clients discover that link, re-examine the beliefs that they have created, and evaluate if this behavior enhances their lives or creates a barrier to the life they want to live today.
-                </p>
-                <p>
-                  I create a warm, safe, non-judgmental space to explore these important questions.
-                </p>
-              </div>
-            </div>
+      {/* My Approach Section - Text Only */}
+      <section id="about" className="py-16 lg:py-20 bg-gray-50">
+        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+          <h2 className="text-4xl font-bold text-trc-gray-900 mb-8 text-center">
+            My Approach
+          </h2>
+          <div className="space-y-6 text-lg text-trc-gray-700 leading-relaxed">
+            <p>
+              I believe in the resiliency of the human spirit. Human Beings can rise above the circumstances of their birth and overcome great trauma and hardship to become whole and resourceful contributors to our planet. Why some people soar because of their experiences and others get stuck for a lifetime has been the prevailing area of study of my life's journey, and informs the work I do with my clients.
+            </p>
+            <p>
+              The question is not "What is wrong with me?", the question is "What happened to me? And how has that shaped my life?". The answer to this question influences every day of your life, both personally and professionally.
+            </p>
+            <p>
+              The behavior we are experiencing today is always linked back to an experience in our past. My work is to help my clients discover that link, re-examine the beliefs that they have created, and evaluate if this behavior enhances their lives or creates a barrier to the life they want to live today.
+            </p>
+            <p>
+              I create a warm, safe, non-judgmental space to explore these important questions.
+            </p>
           </div>
         </div>
       </section>
@@ -288,39 +324,71 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* Testimonials Section */}
+      {/* Testimonials Section with Slider */}
       <section id="testimonials" className="py-20 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
-            <h2 className="text-4xl lg:text-5xl font-bold text-trc-gray-900 mb-6" style={{whiteSpace: 'normal', wordBreak: 'normal'}}>
+            <h2 className="text-4xl lg:text-5xl font-bold text-trc-gray-900 mb-6">
               Recent Testimonials
             </h2>
           </div>
 
-          <div className="max-w-5xl mx-auto mb-20">
-            <div className="bg-white border-2 border-trc-blue-200 rounded-2xl p-10 lg:p-14 shadow-xl relative">
+          {/* Testimonial Slider */}
+          <div className="max-w-5xl mx-auto mb-20 relative">
+            {/* Navigation Arrows */}
+            <button
+              onClick={prevTestimonial}
+              className="absolute left-0 top-1/2 -translate-y-1/2 -translate-x-4 lg:-translate-x-16 z-10 w-12 h-12 bg-white rounded-full shadow-lg flex items-center justify-center hover:bg-gray-50 transition-colors border border-gray-200"
+              aria-label="Previous testimonial"
+            >
+              <svg className="w-6 h-6 text-trc-gray-700" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
+              </svg>
+            </button>
+            <button
+              onClick={nextTestimonial}
+              className="absolute right-0 top-1/2 -translate-y-1/2 translate-x-4 lg:translate-x-16 z-10 w-12 h-12 bg-white rounded-full shadow-lg flex items-center justify-center hover:bg-gray-50 transition-colors border border-gray-200"
+              aria-label="Next testimonial"
+            >
+              <svg className="w-6 h-6 text-trc-gray-700" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+              </svg>
+            </button>
+
+            {/* Testimonial Card */}
+            <div className="bg-white border-2 border-trc-blue-200 rounded-2xl p-10 lg:p-14 shadow-xl relative overflow-hidden">
               <div className="absolute -top-8 left-10">
                 <svg className="w-16 h-16 text-trc-blue-500" fill="currentColor" viewBox="0 0 24 24">
                   <path d="M14.017 21v-7.391c0-5.704 3.731-9.57 8.983-10.609l.995 2.151c-2.432.917-3.995 3.638-3.995 5.849h4v10h-9.983zm-14.017 0v-7.391c0-5.704 3.748-9.57 9-10.609l.996 2.151c-2.433.917-3.996 3.638-3.996 5.849h3.983v10h-9.983z" />
                 </svg>
               </div>
-              <div className="mt-4">
-                <p className="text-xl lg:text-2xl text-trc-gray-700 leading-relaxed mb-8 font-light italic">
-                  Karen came highly recommended by a couple of my peers after I shared with them some professional challenges I was trying to overcome.
+              <div className="mt-4 min-h-[300px] flex flex-col justify-between">
+                <p className="text-lg lg:text-xl text-trc-gray-700 leading-relaxed mb-8 font-light italic">
+                  "{testimonials[currentTestimonial].quote}"
                 </p>
-                <p className="text-xl lg:text-2xl text-trc-gray-700 leading-relaxed mb-8 font-light italic">
-                  Simply put, Karen is a godsend who helped make me a better leader and for this, I am forever grateful. I looked forward to each of our sessions which sometimes felt like therapy, but better.
-                </p>
-                <p className="text-xl lg:text-2xl text-trc-gray-700 leading-relaxed mb-8 font-light italic">
-                  When I think of my experience with Karen <span className="font-semibold text-trc-blue-600">"small changes can make a big difference"</span> comes to mind. Highly recommend.
-                </p>
-                <div className="flex items-center mt-10 pt-8 border-t-2 border-trc-gray-200">
+                <div className="flex items-center mt-6 pt-8 border-t-2 border-trc-gray-200">
                   <div>
-                    <p className="text-lg font-bold text-trc-gray-900">Nikki C.</p>
-                    <p className="text-base text-trc-gray-600">Senior Regional Sales Manager at Cisco</p>
+                    <p className="text-lg font-bold text-trc-gray-900">{testimonials[currentTestimonial].name}</p>
+                    <p className="text-base text-trc-gray-600">{testimonials[currentTestimonial].title}</p>
                   </div>
                 </div>
               </div>
+            </div>
+
+            {/* Dots Navigation */}
+            <div className="flex justify-center mt-8 gap-3">
+              {testimonials.map((_, index) => (
+                <button
+                  key={index}
+                  onClick={() => goToTestimonial(index)}
+                  className={`w-3 h-3 rounded-full transition-all duration-300 ${
+                    index === currentTestimonial
+                      ? 'bg-trc-blue-600 w-8'
+                      : 'bg-gray-300 hover:bg-gray-400'
+                  }`}
+                  aria-label={`Go to testimonial ${index + 1}`}
+                />
+              ))}
             </div>
           </div>
 
