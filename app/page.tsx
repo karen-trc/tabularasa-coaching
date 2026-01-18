@@ -356,12 +356,12 @@ export default function HomePage() {
                         </svg>
                       </div>
                       {/* Quote Text */}
-                      <p className="text-sm sm:text-base lg:text-lg text-trc-gray-700 leading-relaxed font-light italic mt-5 sm:mt-6 flex-grow overflow-y-auto">
+                      <p className="text-sm sm:text-lg text-trc-gray-700 leading-relaxed font-light italic mt-5 sm:mt-6 flex-grow overflow-y-auto">
                         &ldquo;{testimonial.quote}&rdquo;
                       </p>
                       {/* Author Info */}
                       <div className="pt-4 sm:pt-6 border-t-2 border-trc-gray-200 mt-3 sm:mt-4">
-                        <p className="text-base sm:text-lg font-bold text-trc-gray-900">{testimonial.name}</p>
+                        <p className="text-lg font-bold text-trc-gray-900">{testimonial.name}</p>
                         <p className="text-sm sm:text-base text-trc-gray-600">{testimonial.title}</p>
                       </div>
                     </div>
