@@ -58,10 +58,16 @@ export default function ServicesPage() {
                 </h2>
                 <div className="space-y-4 text-lg text-trc-gray-700 leading-relaxed">
                   <p>
-                    My corporate clients include some of the largest tech companies on the planet, such as Cisco, Samsara, and Ford. By the time an organization offers executive coaching to their leaders, those leaders have demonstrated the ability to be excellent independent contributors, and most likely good managers. Think about what makes a great leader: good communication, great decision making, independently motivated, thoughtful about risk taking, the ability to get people to follow them, and many others. These attributes rely on a common denominator: behavior. How a leader shows up, how she/he listens to the team, engages with the team, develops, and supports the team, is all based on personal behavior. Business decisions, strategy, risk taking, and forward visioning and movement are also dependent upon personal behavior.
+                    My corporate clients include some of the largest companies on the planet, such as Cisco, Cisco Meraki and Ford. By the time an organization offers executive coaching to their leaders, those leaders have already demonstrated excellence as independent contributors and, most likely, as capable managers.
                   </p>
                   <p>
-                    In my 15 years of international executive leadership coaching, I have seen brilliant minds at work innovating and creating amazing processes and products. I have also seen brilliant minds create chaos within organizations. Not because they do not care about their teams, but because of their lack of self-awareness about what is driving their behavior. This is my area of expertise. In hindsight, we all know when we have handled a situation poorly. In my work with clients, I help clients recognize unhealthy reactions, identify what the triggers are that cause them, and then shift into a new way of responding. This is the kind of growth and development that can strengthen organizations and the people within them as they move forward to the next level.
+                    Consider what makes a great leader: clear communication, sound decision-making, intrinsic motivation, thoughtful risk assessment, and the ability to inspire others to follow their vision. These attributes share a common foundation: behavior. How a leader shows up, listens to their team, engages authentically, and develops and supports others—all flow from their personal presence and actions. Business decisions, strategy, risk-taking, and forward vision likewise stem from this same source.
+                  </p>
+                  <p>
+                    In my 15 years of international executive leadership coaching, I have witnessed brilliant minds innovating and creating remarkable processes and products. I have also observed how even the most talented leaders can create unintended friction within organizations—not from lack of care for their teams, but from limited awareness of what drives their responses. This is my area of expertise.
+                  </p>
+                  <p>
+                    While hindsight often reveals when we could have handled a situation differently, my work helps clients recognize patterns in real-time, understand the triggers behind their reactions, and cultivate new, more effective ways of responding. This kind of growth and development strengthens both organizations and the people within them, creating the foundation for advancement to the next level.
                   </p>
                 </div>
               </div>
@@ -101,7 +107,10 @@ export default function ServicesPage() {
                 </h2>
                 <div className="space-y-4 text-lg text-trc-gray-700 leading-relaxed">
                   <p>
-                    Psychosynthesis is a psychology of hope, with its eye not only on history, but also on a purposeful future giving individuals the capacity to reorient their lives in the direction of meaning and values. Psychosynthesis has also been described as a psychology of the Self, in that the realms of human experience also include matters of soul and spirit, alongside physical and emotional experiences and thoughts, and mental processes. In weekly, one-hour sessions, I aid my clients in exploring challenges on all levels in order to bring balance and satisfaction in their lives. Gaining personal perspective into their own personality helps my client to see the "why" of their behavior and opens the door to well-informed decision making and life choices.
+                    Psychosynthesis is a psychology of hope that honors both our personal history and our purposeful future, empowering individuals to reorient their lives toward meaning and values. It has also been described as a psychology of the Self, recognizing that human experience encompasses matters of soul and spirit alongside physical sensations, emotional experiences, thoughts, and mental processes.
+                  </p>
+                  <p>
+                    In weekly, one-hour sessions, I support my clients in exploring life's challenges on all levels to cultivate balance and fulfillment. Through this process, clients can explore what they believe to be true about themselves, the world, and the spiritual dimensions of their experience. Gaining personal insight into their own personality helps clients understand the "why" behind their behavior and opens the door to conscious, well-informed decision-making and life choices.
                   </p>
                 </div>
               </div>
@@ -115,7 +124,16 @@ export default function ServicesPage() {
                 </h2>
                 <div className="space-y-4 text-lg text-trc-gray-700 leading-relaxed">
                   <p>
-                    From the moment we take our first breath, we learn how to be in the world and the circumstances into which we are born. We are born into Earth School. Our challenge is to learn how to navigate our lives and circumstances in order to create the lives we want to live. Whether are we are born into affluence, poverty, or somewhere in between, no one gets out unscathed. The journey of our lives is filled with many bends and turns, many highs and lows, many hurts, and joys. We get the whole wonderful catastrophe whether we like it or not. In personal transformational coaching we embark on a journey of deep self-examination to transform your relationships, career, health, and spiritual life, so that you can begin to be aware of what you believe, how those beliefs influence how you show up in the world, and if your beliefs and behaviors enhance or detract from the life you want to live. When I work with clients, I offer explanations as to how we are hardwired to behave. My belief is, if we understand the way our brains are hardwired, we can let ourselves off the hook for many things we beat ourselves up over. This is a marvelous journey of self-discovery, which will boost your confidence, self-esteem, and life decision-making.
+                    From the moment we take our first breath, we begin learning how to navigate the world and the circumstances into which we are born. We are all enrolled in Earth School. Our challenge is to learn how to move through our lives and circumstances in ways that allow us to create the lives we want to live.
+                  </p>
+                  <p>
+                    Whether we are born into affluence, poverty, or somewhere in between, everyone faces challenges along the way. The journey of our lives is filled with bends and turns, highs and lows, hurts and joys. We receive the whole wonderful catastrophe whether we like it or not.
+                  </p>
+                  <p>
+                    In personal transformational coaching, we embark on a journey of deep self-examination to transform your relationships, career, health, and spiritual life. You'll become aware of what you believe, how those beliefs influence the way you show up in the world, and whether your beliefs and behaviors enhance or limit the life you want to live.
+                  </p>
+                  <p>
+                    When I work with clients, I offer insights into how we are naturally wired to behave. My belief is that when we understand how our brains work, we can release the self-judgment we carry for so many things. This is a profound journey of self-discovery that will strengthen your confidence, self-awareness, and capacity for wise life decisions.
                   </p>
                 </div>
               </div>
