@@ -61,35 +61,36 @@ export default function HomePage() {
 
   return (
     <div className="min-h-screen bg-white">
-      {/* Hero Section - Indigo with Orange Accent */}
-      <section className="relative">
-        {/* Main Indigo Background */}
-        <div className="bg-indigo-900 py-16 lg:py-20">
-          <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div className="text-center">
-              <p className="text-base lg:text-lg text-white font-semibold mb-6 tracking-wide">
-                Tabula Rasa Coaching
-              </p>
-              <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold text-white mb-6 leading-tight">
-                Question the Unquestionable
-              </h1>
-              <p className="text-base lg:text-lg text-indigo-100 leading-relaxed max-w-xl mx-auto">
-                Professional 1:1 coaching with Karen Florence, CPC, CPRWC
-              </p>
-            </div>
-          </div>
+      {/* Hero Section - Same style as Contact page */}
+      <section className="bg-gradient-to-br from-trc-blue-700 via-trc-blue-800 to-trc-blue-900 text-white py-20 lg:py-24">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+          <p className="text-sm lg:text-base text-trc-blue-200 font-medium mb-4 tracking-widest uppercase">
+            Tabula Rasa Coaching
+          </p>
+          <h1 className="text-5xl lg:text-6xl font-bold mb-6 text-white">Question the Unquestionable</h1>
+          <p className="text-xl lg:text-2xl text-white max-w-3xl mx-auto leading-relaxed">
+            Professional 1:1 coaching with Karen Florence, CPC, CPRWC
+          </p>
         </div>
-        {/* Orange Accent Bar */}
-        <div className="h-2 bg-gradient-to-r from-orange-400 via-orange-500 to-amber-500"></div>
       </section>
 
-      {/* My Approach Section - Text Only */}
-      <section id="about" className="py-16 lg:py-20 bg-gray-50">
-        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-          <h2 className="text-4xl font-bold text-trc-gray-900 mb-8 text-center">
+      {/* My Approach Section - Bright orange with dark text */}
+      <section id="about" className="relative py-16 lg:py-20 overflow-hidden">
+        {/* Bright Orange Background like old website */}
+        <div className="absolute inset-0 bg-orange-400"></div>
+        {/* Subtle pattern overlay */}
+        <div
+          className="absolute inset-0 opacity-[0.05]"
+          style={{
+            backgroundImage: `url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23000000' fill-opacity='1'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E")`,
+          }}
+        ></div>
+
+        <div className="relative z-10 max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+          <h2 className="text-3xl lg:text-4xl font-bold text-orange-900 mb-8 text-center">
             My Approach
           </h2>
-          <div className="space-y-6 text-lg text-trc-gray-700 leading-relaxed">
+          <div className="space-y-5 text-base lg:text-lg text-orange-950 leading-relaxed">
             <p>
               I believe in the resiliency of the human spirit. Human Beings can rise above the circumstances of their birth and overcome great trauma and hardship to become whole and resourceful contributors to our planet. Why some people soar because of their experiences and others get stuck for a lifetime has been the prevailing area of study of my life's journey, and informs the work I do with my clients.
             </p>
@@ -99,7 +100,7 @@ export default function HomePage() {
             <p>
               The behavior we are experiencing today is always linked back to an experience in our past. My work is to help my clients discover that link, re-examine the beliefs that they have created, and evaluate if this behavior enhances their lives or creates a barrier to the life they want to live today.
             </p>
-            <p>
+            <p className="font-semibold">
               I create a warm, safe, non-judgmental space to explore these important questions.
             </p>
           </div>
