@@ -64,23 +64,23 @@ export default function HomePage() {
       {/* Hero Section - Indigo with Orange Accent */}
       <section className="relative">
         {/* Main Indigo Background */}
-        <div className="bg-indigo-900 min-h-[450px] lg:min-h-[500px] flex items-center">
-          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20 lg:py-28 w-full">
+        <div className="bg-indigo-900 py-16 lg:py-20">
+          <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
             <div className="text-center">
-              <p className="text-lg lg:text-xl text-indigo-200 mb-4 tracking-widest uppercase font-medium">
+              <p className="text-base lg:text-lg text-white font-semibold mb-6 tracking-wide">
                 Tabula Rasa Coaching
               </p>
-              <h1 className="text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-bold text-white mb-6 tracking-tight leading-tight max-w-4xl mx-auto">
+              <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold text-white mb-6 leading-tight">
                 Question the Unquestionable
               </h1>
-              <p className="text-lg lg:text-xl text-indigo-100 leading-relaxed max-w-2xl mx-auto">
+              <p className="text-base lg:text-lg text-indigo-100 leading-relaxed max-w-xl mx-auto">
                 Professional 1:1 coaching with Karen Florence, CPC, CPRWC
               </p>
             </div>
           </div>
         </div>
         {/* Orange Accent Bar */}
-        <div className="h-3 bg-gradient-to-r from-orange-400 via-orange-500 to-amber-500"></div>
+        <div className="h-2 bg-gradient-to-r from-orange-400 via-orange-500 to-amber-500"></div>
       </section>
 
       {/* My Approach Section - Text Only */}
