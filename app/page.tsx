@@ -61,36 +61,26 @@ export default function HomePage() {
 
   return (
     <div className="min-h-screen bg-white">
-      {/* Hero Section with Color Block */}
-      <section className="relative min-h-[500px] lg:min-h-[600px] flex items-center">
-        {/* Color Block Background - Split Design */}
-        <div className="absolute inset-0 z-0">
-          <div className="h-full w-full flex">
-            {/* Indigo Blue Block */}
-            <div className="w-1/2 h-full bg-gradient-to-br from-indigo-900 via-indigo-800 to-indigo-700"></div>
-            {/* Orange Block */}
-            <div className="w-1/2 h-full bg-gradient-to-bl from-orange-500 via-orange-400 to-amber-500"></div>
-          </div>
-          {/* Diagonal overlay for blending */}
-          <div className="absolute inset-0 bg-gradient-to-r from-indigo-900/30 via-transparent to-orange-500/30"></div>
-        </div>
-
-        {/* Content */}
-        <div className="relative z-20 w-full">
-          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16 lg:py-24">
+      {/* Hero Section - Indigo with Orange Accent */}
+      <section className="relative">
+        {/* Main Indigo Background */}
+        <div className="bg-indigo-900 min-h-[450px] lg:min-h-[500px] flex items-center">
+          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20 lg:py-28 w-full">
             <div className="text-center">
-              <p className="text-xl lg:text-2xl text-white/90 mb-6 tracking-wide font-light">
+              <p className="text-lg lg:text-xl text-indigo-200 mb-4 tracking-widest uppercase font-medium">
                 Tabula Rasa Coaching
               </p>
-              <h1 className="text-5xl md:text-6xl lg:text-7xl xl:text-8xl font-bold text-white mb-8 tracking-tight leading-tight">
+              <h1 className="text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-bold text-white mb-6 tracking-tight leading-tight max-w-4xl mx-auto">
                 Question the Unquestionable
               </h1>
-              <p className="text-xl lg:text-2xl text-white/90 leading-relaxed max-w-3xl mx-auto">
+              <p className="text-lg lg:text-xl text-indigo-100 leading-relaxed max-w-2xl mx-auto">
                 Professional 1:1 coaching with Karen Florence, CPC, CPRWC
               </p>
             </div>
           </div>
         </div>
+        {/* Orange Accent Bar */}
+        <div className="h-3 bg-gradient-to-r from-orange-400 via-orange-500 to-amber-500"></div>
       </section>
 
       {/* My Approach Section - Text Only */}
