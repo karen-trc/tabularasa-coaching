@@ -74,23 +74,13 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* My Approach Section - Bright orange with dark text */}
-      <section id="about" className="relative py-16 lg:py-20 overflow-hidden">
-        {/* Bright Orange Background like old website */}
-        <div className="absolute inset-0 bg-orange-400"></div>
-        {/* Subtle pattern overlay */}
-        <div
-          className="absolute inset-0 opacity-[0.05]"
-          style={{
-            backgroundImage: `url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23000000' fill-opacity='1'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E")`,
-          }}
-        ></div>
-
-        <div className="relative z-10 max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-          <h2 className="text-3xl lg:text-4xl font-bold text-orange-900 mb-8 text-center">
+      {/* My Approach Section - Light orange background like Career Coaching card */}
+      <section id="about" className="py-16 lg:py-20 bg-gradient-to-br from-orange-50 to-orange-100/50 border-t-4 border-orange-400">
+        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+          <h2 className="text-3xl lg:text-4xl font-bold text-gray-900 mb-8 text-center">
             My Approach
           </h2>
-          <div className="space-y-5 text-base lg:text-lg text-orange-950 leading-relaxed">
+          <div className="space-y-5 text-base lg:text-lg text-gray-700 leading-relaxed">
             <p>
               I believe in the resiliency of the human spirit. Human Beings can rise above the circumstances of their birth and overcome great trauma and hardship to become whole and resourceful contributors to our planet. Why some people soar because of their experiences and others get stuck for a lifetime has been the prevailing area of study of my life's journey, and informs the work I do with my clients.
             </p>
@@ -100,7 +90,7 @@ export default function HomePage() {
             <p>
               The behavior we are experiencing today is always linked back to an experience in our past. My work is to help my clients discover that link, re-examine the beliefs that they have created, and evaluate if this behavior enhances their lives or creates a barrier to the life they want to live today.
             </p>
-            <p className="font-semibold">
+            <p className="font-semibold text-gray-900">
               I create a warm, safe, non-judgmental space to explore these important questions.
             </p>
           </div>
