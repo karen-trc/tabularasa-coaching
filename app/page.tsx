@@ -348,21 +348,21 @@ export default function HomePage() {
                     key={index}
                     className="w-full flex-shrink-0 px-4"
                   >
-                    <div className="bg-white border-2 border-trc-blue-200 rounded-2xl p-8 lg:p-10 shadow-lg h-[420px] flex flex-col relative">
+                    <div className="bg-white border-2 border-trc-blue-200 rounded-2xl p-5 sm:p-8 lg:p-10 shadow-lg h-[520px] sm:h-[480px] lg:h-[420px] flex flex-col relative">
                       {/* Quote Icon */}
-                      <div className="absolute -top-4 left-8">
-                        <svg className="w-12 h-12 text-trc-blue-500" fill="currentColor" viewBox="0 0 24 24">
+                      <div className="absolute -top-4 left-5 sm:left-8">
+                        <svg className="w-10 h-10 sm:w-12 sm:h-12 text-trc-blue-500" fill="currentColor" viewBox="0 0 24 24">
                           <path d="M14.017 21v-7.391c0-5.704 3.731-9.57 8.983-10.609l.995 2.151c-2.432.917-3.995 3.638-3.995 5.849h4v10h-9.983zm-14.017 0v-7.391c0-5.704 3.748-9.57 9-10.609l.996 2.151c-2.433.917-3.996 3.638-3.996 5.849h3.983v10h-9.983z" />
                         </svg>
                       </div>
                       {/* Quote Text */}
-                      <p className="text-lg text-trc-gray-700 leading-relaxed font-light italic mt-6 flex-grow overflow-y-auto">
+                      <p className="text-sm sm:text-base lg:text-lg text-trc-gray-700 leading-relaxed font-light italic mt-5 sm:mt-6 flex-grow overflow-y-auto">
                         &ldquo;{testimonial.quote}&rdquo;
                       </p>
                       {/* Author Info */}
-                      <div className="pt-6 border-t-2 border-trc-gray-200 mt-4">
-                        <p className="text-lg font-bold text-trc-gray-900">{testimonial.name}</p>
-                        <p className="text-base text-trc-gray-600">{testimonial.title}</p>
+                      <div className="pt-4 sm:pt-6 border-t-2 border-trc-gray-200 mt-3 sm:mt-4">
+                        <p className="text-base sm:text-lg font-bold text-trc-gray-900">{testimonial.name}</p>
+                        <p className="text-sm sm:text-base text-trc-gray-600">{testimonial.title}</p>
                       </div>
                     </div>
                   </div>
