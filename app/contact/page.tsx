@@ -213,22 +213,15 @@ export default function ContactPage() {
               Ready to Begin Your Transformation?
             </h2>
             <p className="text-xl lg:text-2xl text-white leading-relaxed max-w-3xl mx-auto" style={{textShadow: '1px 1px 3px rgba(0,0,0,0.8)'}}>
-              Contact us directly via email or phone to schedule your consultation and take the first step toward discovering your soul's work.
+              Contact us directly via email to schedule your consultation and take the first step toward discovering your soul's work.
             </p>
           </div>
 
-          <div className="grid md:grid-cols-2 gap-6 max-w-xl mx-auto">
+          <div className="max-w-md mx-auto">
             <div className="bg-white rounded-lg p-5 shadow-md text-center">
               <h3 className="text-base font-semibold text-trc-gray-900 mb-2">Email</h3>
               <a href="mailto:karen@tabularasacoaching.com" className="text-trc-blue-600 hover:underline text-base">
                 karen@tabularasacoaching.com
-              </a>
-            </div>
-
-            <div className="bg-white rounded-lg p-5 shadow-md text-center">
-              <h3 className="text-base font-semibold text-trc-gray-900 mb-2">Phone</h3>
-              <a href="tel:+16102284145" className="text-trc-blue-600 hover:underline text-base">
-                +1 610 228 4145
               </a>
             </div>
           </div>

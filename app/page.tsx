@@ -64,7 +64,7 @@ export default function HomePage() {
       {/* Hero Section - Same style as Contact page */}
       <section className="bg-gradient-to-br from-trc-blue-700 via-trc-blue-800 to-trc-blue-900 text-white py-20 lg:py-24">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <p className="text-sm lg:text-base text-trc-blue-200 font-medium mb-4 tracking-widest uppercase">
+          <p className="text-xl lg:text-2xl text-white mb-4 tracking-wide">
             Tabula Rasa Coaching
           </p>
           <h1 className="text-5xl lg:text-6xl font-bold mb-6 text-white">Question the Unquestionable</h1>
@@ -206,7 +206,7 @@ export default function HomePage() {
                 </svg>
               </div>
               <h3 className="text-2xl font-bold text-trc-gray-900 mb-4 text-center">
-                Personal Coaching
+                Personal Transformation Coaching
               </h3>
               <ul className="space-y-2.5 text-left">
                 <li className="flex items-start">

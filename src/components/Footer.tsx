@@ -9,7 +9,7 @@ export default function Footer() {
           <div>
             <h3 className="text-xl font-bold mb-4 text-white">Tabula Rasa Coaching</h3>
             <p className="text-white leading-relaxed">
-              Tabula Rasa Coaching Training Academy (TRC Training Academy), spearheaded by the experienced and acclaimed Karen Florence, a certified professional coach (CPC), certified professional recovery and wellness coach (CPRWC), and professional coach (PC). Discover a transformative journey in our comprehensive coach training programs, empowering you to excel in the art of coaching.
+              Tabula Rasa Coaching Training Academy (TRC Training Academy), spearheaded by the experienced and acclaimed Karen Florence, a certified professional coach (CPC), certified professional recovery and wellness coach (CPRWC), and Psychosynthesis Counselor (PC). Discover a transformative journey in our comprehensive coach training programs, empowering you to excel in the art of coaching.
             </p>
           </div>
 
@@ -47,11 +47,6 @@ export default function Footer() {
               <li>
                 <a href="mailto:karen@tabularasacoaching.com" className="hover:text-white transition-colors">
                   karen@tabularasacoaching.com
-                </a>
-              </li>
-              <li>
-                <a href="tel:+16102284145" className="hover:text-white transition-colors">
-                  +1 (610) 228-4145
                 </a>
               </li>
             </ul>
