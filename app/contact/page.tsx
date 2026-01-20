@@ -15,22 +15,42 @@ export default function ContactPage() {
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [submitStatus, setSubmitStatus] = useState<'idle' | 'success' | 'error'>('idle');
 
+  const [errorMessage, setErrorMessage] = useState('');
+
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setIsSubmitting(true);
+    setErrorMessage('');
 
-    // Simulate form submission (replace with actual API call)
-    setTimeout(() => {
-      setIsSubmitting(false);
-      setSubmitStatus('success');
-      setFormData({
-        name: '',
-        email: '',
-        phone: '',
-        interest: '',
-        message: '',
+    try {
+      const response = await fetch('/api/contact', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(formData),
       });
-    }, 1000);
+
+      if (response.ok) {
+        setSubmitStatus('success');
+        setFormData({
+          name: '',
+          email: '',
+          phone: '',
+          interest: '',
+          message: '',
+        });
+      } else {
+        const data = await response.json();
+        setErrorMessage(data.error || 'Failed to send message. Please try again.');
+        setSubmitStatus('error');
+      }
+    } catch (error) {
+      setErrorMessage('An unexpected error occurred. Please try again.');
+      setSubmitStatus('error');
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {
@@ -83,6 +103,11 @@ export default function ContactPage() {
               </div>
             ) : (
               <form onSubmit={handleSubmit} className="space-y-6">
+                {submitStatus === 'error' && (
+                  <div className="bg-red-50 border border-red-200 rounded-lg p-4 mb-4">
+                    <p className="text-red-700 text-center">{errorMessage}</p>
+                  </div>
+                )}
                 <div>
                   <label htmlFor="name" className="block text-sm font-semibold text-trc-gray-900 mb-2">
                     Full Name *
