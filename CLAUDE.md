@@ -42,3 +42,34 @@ Dieses Projekt verwendet einen automatischen Merge-Workflow für Claude-Branches
 ## Deployment
 
 Das Projekt wird automatisch deployed wenn Änderungen zu `main` gepusht werden.
+Vercel URL: https://tabularasa-coaching.vercel.app
+
+---
+
+## Ausstehende Aufgaben (Stand: Januar 2025)
+
+### Kontaktformular E-Mail-Versand (wartet auf DNS-Zugang von Karen)
+
+Das Kontaktformular ist technisch fertig implementiert mit Resend. Es fehlt nur noch die Konfiguration:
+
+1. **DNS-Records bei Domain-Provider eintragen:**
+   - Karen muss DNS-Zugang gewähren
+   - Im Resend Dashboard unter "Domains" die Records abrufen (SPF, DKIM, DMARC)
+   - Records beim Domain-Provider hinzufügen
+
+2. **Resend API-Key konfigurieren:**
+   - API-Key von https://resend.com/api-keys holen
+   - Lokal in `.env.local`: `RESEND_API_KEY=re_xxx`
+   - In Vercel: Project Settings → Environment Variables → `RESEND_API_KEY`
+
+### Relevante Dateien für E-Mail-Funktion
+
+- `app/api/contact/route.ts` - API-Route für E-Mail-Versand
+- `app/contact/page.tsx` - Kontaktformular (bereits mit API verbunden)
+- `.env.local` - Lokale Umgebungsvariablen (Platzhalter vorhanden)
+
+### Technische Hinweise
+
+- E-Mails werden an karen@tabularasacoaching.com gesendet
+- Absender: noreply@tabularasacoaching.com (nach DNS-Verifizierung)
+- Dev Server läuft oft auf Port 3001 (Port 3000 belegt)
