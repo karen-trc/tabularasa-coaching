@@ -2,6 +2,8 @@
 
 import { useState } from 'react';
 import Image from 'next/image';
+import Script from 'next/script';
+import { executeRecaptcha } from '@/src/lib/recaptcha';
 
 export default function ContactPage() {
   const [formData, setFormData] = useState({
@@ -14,8 +16,10 @@ export default function ContactPage() {
 
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [submitStatus, setSubmitStatus] = useState<'idle' | 'success' | 'error'>('idle');
-
   const [errorMessage, setErrorMessage] = useState('');
+  const [recaptchaLoaded, setRecaptchaLoaded] = useState(false);
+
+  const siteKey = process.env.NEXT_PUBLIC_RECAPTCHA_SITE_KEY;
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
@@ -23,12 +27,24 @@ export default function ContactPage() {
     setErrorMessage('');
 
     try {
+      // Get reCAPTCHA token
+      let recaptchaToken = null;
+      if (recaptchaLoaded && siteKey) {
+        recaptchaToken = await executeRecaptcha('submit_contact_form');
+        if (!recaptchaToken) {
+          setErrorMessage('Security verification failed. Please try again.');
+          setSubmitStatus('error');
+          setIsSubmitting(false);
+          return;
+        }
+      }
+
       const response = await fetch('/api/contact', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
         },
-        body: JSON.stringify(formData),
+        body: JSON.stringify({ ...formData, recaptchaToken }),
       });
 
       if (response.ok) {
@@ -45,7 +61,7 @@ export default function ContactPage() {
         setErrorMessage(data.error || 'Failed to send message. Please try again.');
         setSubmitStatus('error');
       }
-    } catch (error) {
+    } catch {
       setErrorMessage('An unexpected error occurred. Please try again.');
       setSubmitStatus('error');
     } finally {
@@ -61,6 +77,15 @@ export default function ContactPage() {
   };
 
   return (
+    <>
+      {/* Load reCAPTCHA v3 Script */}
+      {siteKey && (
+        <Script
+          src={`https://www.google.com/recaptcha/api.js?render=${siteKey}`}
+          onLoad={() => setRecaptchaLoaded(true)}
+          strategy="lazyOnload"
+        />
+      )}
     <div className="min-h-screen bg-white">
       {/* Hero Section */}
       <section className="bg-gradient-to-br from-trc-blue-700 via-trc-blue-800 to-trc-blue-900 text-white py-20 lg:py-24">
@@ -253,5 +278,6 @@ export default function ContactPage() {
         </div>
       </section>
     </div>
+    </>
   );
 }

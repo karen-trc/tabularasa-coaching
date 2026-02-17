@@ -1,5 +1,6 @@
 import { Resend } from 'resend';
 import { NextRequest, NextResponse } from 'next/server';
+import { verifyRecaptchaToken } from '@/src/lib/recaptcha';
 
 export async function POST(request: NextRequest) {
   try {
@@ -15,7 +16,7 @@ export async function POST(request: NextRequest) {
     const resend = new Resend(process.env.RESEND_API_KEY);
 
     const body = await request.json();
-    const { name, email, phone, interest, message } = body;
+    const { name, email, phone, interest, message, recaptchaToken } = body;
 
     // Validate required fields
     if (!name || !email || !interest) {
@@ -23,6 +24,19 @@ export async function POST(request: NextRequest) {
         { error: 'Name, email, and interest are required' },
         { status: 400 }
       );
+    }
+
+    // Verify reCAPTCHA token if provided
+    if (recaptchaToken) {
+      const recaptchaResult = await verifyRecaptchaToken(recaptchaToken, 'submit_contact_form');
+      if (!recaptchaResult.success) {
+        console.warn('reCAPTCHA verification failed:', recaptchaResult.error);
+        return NextResponse.json(
+          { error: recaptchaResult.error || 'Security verification failed. Please try again.' },
+          { status: 403 }
+        );
+      }
+      console.log(`reCAPTCHA verified successfully (score: ${recaptchaResult.score})`);
     }
 
     // Map interest values to readable labels
