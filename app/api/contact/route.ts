@@ -35,8 +35,9 @@ export async function POST(request: NextRequest) {
     const interestLabel = interestLabels[interest] || interest;
 
     // Send email to Karen
+    // Using onboarding@resend.dev until tabularasacoaching.com domain is verified in Resend
     const { data, error } = await resend.emails.send({
-      from: 'Tabula Rasa Coaching <noreply@tabularasacoaching.com>',
+      from: 'Tabula Rasa Coaching <onboarding@resend.dev>',
       to: ['karen@tabularasacoaching.com'],
       replyTo: email,
       subject: `New Contact Form Submission: ${interestLabel}`,
@@ -61,6 +62,40 @@ export async function POST(request: NextRequest) {
         { error: 'Failed to send email' },
         { status: 500 }
       );
+    }
+
+    // Send confirmation email to customer
+    const customerEmailHtml = `
+      <div style="font-family: Arial, sans-serif; max-width: 600px; margin: 0 auto; color: #333;">
+        <div style="background: linear-gradient(135deg, #2d3748, #4a5568); padding: 30px; text-align: center;">
+          <h1 style="color: white; margin: 0; font-size: 24px;">Tabula Rasa Coaching</h1>
+        </div>
+        <div style="padding: 30px; background: #ffffff;">
+          <h2 style="color: #2d3748;">Thank You, ${name}!</h2>
+          <p>We have received your inquiry regarding <strong>${interestLabel}</strong> and appreciate your interest in Tabula Rasa Coaching.</p>
+          <p>Karen will personally review your message and get back to you <strong>within 24 hours</strong>.</p>
+          <div style="background: #f7fafc; border-left: 4px solid #d69e2e; padding: 15px; margin: 20px 0; border-radius: 4px;">
+            <p style="margin: 0; font-weight: bold; color: #2d3748;">In the meantime, feel free to reach out directly:</p>
+            <p style="margin: 8px 0 0 0;">Email: karen@tabularasacoaching.com<br>Phone: (610) 228-4145</p>
+          </div>
+          <p>We look forward to connecting with you!</p>
+          <p style="margin-top: 20px;">Warm regards,<br><strong>Karen | Tabula Rasa Coaching</strong></p>
+        </div>
+        <div style="background: #f7fafc; padding: 15px; text-align: center; font-size: 12px; color: #718096;">
+          <p style="margin: 0;">Tabula Rasa Coaching | tabularasacoaching.com</p>
+        </div>
+      </div>
+    `;
+
+    const customerConfirmation = await resend.emails.send({
+      from: 'Tabula Rasa Coaching <onboarding@resend.dev>',
+      to: [email],
+      subject: 'Thank You for Contacting Tabula Rasa Coaching',
+      html: customerEmailHtml,
+    });
+
+    if (customerConfirmation.error) {
+      console.warn('Customer confirmation email failed:', customerConfirmation.error);
     }
 
     return NextResponse.json(
